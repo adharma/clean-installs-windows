@@ -1,3 +1,24 @@
-winget install Google.Chrome --accept-source-agreements
-winget install Zoom.Zoom --accept-source-agreements
-winget install Agilebits.1Password --accept-source-agreements
+#powershell script for clever clean windows installs
+
+#install 3rd party apps
+$apps=@(
+    'Google.Chrome'
+    'Zoom.Zoom'
+    'Agilebits.1Password'
+    'SparkLabs.Viscosity'
+)
+
+echo "installing apps..."
+winget install $apps --accept-source-agreements
+if %ERRORLEVEL% EQU 0 Echo $apps installed successfully. 
+
+##### TODO remove default Windows apps
+##### don't know how to do this yet for Windows.
+
+# install all Windows updates
+echo "installing all Windows updates..."
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Install-Module -Name PSWindowsUpdate -Force
+Get-Package -Name PSWindowsUpdate
+Get-command -module PSWindowsUpdate
+Get-WindowsUpdate -AcceptAll -Install -AutoReboot
