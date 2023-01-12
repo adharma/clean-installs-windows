@@ -1,4 +1,4 @@
-#powershell script for clever clean windows installs
+#powershell script for clean windows 10/11 machines
 
 #install 3rd party apps
 $apps=@(
