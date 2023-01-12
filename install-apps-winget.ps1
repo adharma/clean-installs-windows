@@ -17,13 +17,14 @@ foreach ($app in $apps) {
         (echo "$app install failed")}
     }
 
-##### TODO remove default Windows apps
-##### don't know how to do this yet for Windows.
+<# TODO remove default Windows apps for Lenovo X1C
+#>
 
-# install all Windows updates
+<# TODO install all Windows updates
 echo "installing all Windows updates..."
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Install-Module -Name PSWindowsUpdate -Force
 Get-Package -Name PSWindowsUpdate
 Get-command -module PSWindowsUpdate
 Get-WindowsUpdate -AcceptAll -Install -AutoReboot
+#>
