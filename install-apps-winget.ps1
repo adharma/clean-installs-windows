@@ -9,8 +9,9 @@ $apps=@(
 )
 
 echo "installing apps..."
-winget install $apps --accept-source-agreements
-if %ERRORLEVEL% EQU 0 Echo $apps installed successfully. 
+foreach ($app in $apps)
+    {winget install $app --accept-source-agreements
+    if %ErrorLevel% equ 0 (echo $app installed successfully) else (echo $app install failed)}
 
 ##### TODO remove default Windows apps
 ##### don't know how to do this yet for Windows.
