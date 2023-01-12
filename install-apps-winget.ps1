@@ -11,10 +11,10 @@ $apps=@(
 echo "installing apps..."
 foreach ($app in $apps) {
     winget install $app --accept-source-agreements
-    if ($? -eq True) {
-        (echo $app installed successfully)} 
+    if ($? -eq 'True') {
+        (echo "$app installed successfully")} 
     else {
-        (echo $app install failed)}
+        (echo "$app install failed")}
     }
 
 ##### TODO remove default Windows apps
