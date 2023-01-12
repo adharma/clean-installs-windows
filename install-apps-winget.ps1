@@ -11,9 +11,9 @@ $apps=@(
 echo "installing apps..."
 foreach ($app in $apps) {
     winget install $app --accept-source-agreements
-    if ($LASTEXITCODE -eq 0) {
-        (echo $app installed successfully) 
-    } else {
+    if ($? -eq True) {
+        (echo $app installed successfully)} 
+    else {
         (echo $app install failed)}
     }
 
