@@ -10,7 +10,7 @@ $apps=@(
 
 echo "installing apps..."
 foreach ($app in $apps) {
-    winget install $app --accept-source-agreements
+    winget install $app --accept-source-agreements --silent
     if ($? -eq 'True') {
         (echo "$app installed successfully")} 
     else {
